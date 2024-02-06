@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "@sidebase/nuxt-auth": "^0.6.7",
     "pinia": "^2.1.7"
   }
 }

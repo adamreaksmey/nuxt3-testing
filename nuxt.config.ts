@@ -12,7 +12,13 @@ export default defineNuxtConfig({
         ],
       },
     ],
+    "@sidebase/nuxt-auth",
   ],
+  auth: {
+    provider: {
+      type: "local",
+    },
+  },
   ssr: false,
 });
 

@@ -2,5 +2,34 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   pages: true,
-  modules: ["@pinia/nuxt"],
+  modules: [
+    // ...
+    [
+      "@pinia/nuxt",
+      {
+        autoImports: [
+          // automatically imports `defineStore`
+          "defineStore",
+        ],
+      },
+    ],
+  ],
+  ssr: false,
 });
+
+// export default defineNuxtConfig({
+//   ssr: false,
+
+//   modules: [
+//     // ...
+//     [
+//       '@pinia/nuxt',
+//       {
+//         autoImports: [
+//           // automatically imports `defineStore`
+//           'defineStore',
+//         ],
+//       },
+//     ],
+//   ],
+// });

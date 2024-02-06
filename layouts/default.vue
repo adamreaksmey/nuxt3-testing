@@ -7,6 +7,9 @@
         <li v-if="!authenticated" class="loginBtn" style="float: right">
           <nuxt-link to="/login">Login</nuxt-link>
         </li>
+        <li v-if="authenticated" class="loginBtn" style="float: right">
+          <nuxt-link @click="logout">Logout</nuxt-link>
+        </li>
       </ul>
     </header>
     <div class="mainContent">
@@ -19,7 +22,18 @@
 </template>
 
 <script setup lang="ts">
-const authenticated = ref(false);
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "../store/auth";
+
+const router: any = useRouter();
+
+const { logUserOut } = useAuthStore();
+const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+
+const logout = () => {
+  logUserOut();
+  router.push("/login");
+};
 </script>
 
 <style scoped></style>
